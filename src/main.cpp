@@ -175,7 +175,7 @@ void loop() {
             SerialMon.println("Perte de connexion, tentative de reconnexion...");
             connectToNetwork();
           }
-          String httpRaw = "POST /webhook HTTP/1.1\r\nHost: weblocker-staging.eristich.dev\r\nX-Api-Key: " + String(webhook_api_key) + "\r\nContent-Type: application/json\r\nContent-Length: " + String(payload.length()) + "\r\n\r\n" + payload;
+          String httpRaw = "POST " + String(resource) + " HTTP/1.1\r\nHost: " + String(server) + "\r\nX-Api-Key: " + String(webhook_api_key) + "\r\nContent-Type: application/json\r\nContent-Length: " + String(payload.length()) + "\r\n\r\n" + payload;
           SerialMon.println(httpRaw);
 
           // Données à envoyer
